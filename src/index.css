@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* Blur transition effect when changing theme */
+.theme-blur-transition {
+  animation: themeBlurEffect 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes themeBlurEffect {
+  0% {
+    filter: blur(0px);
+  }
+  50% {
+    filter: blur(12px);
+  }
+  100% {
+    filter: blur(0px);
+  }
+}
+
+/* Comprehensive Dark Mode Palettes for SENA Induction */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #020617; /* slate-950 */
+  color: #f8fafc;
+}
+
+.dark .bg-white {
+  background-color: #0f172a !important; /* slate-900 */
+}
+
+.dark .bg-slate-50 {
+  background-color: #1e293b !important; /* slate-800 */
+}
+
+.dark .bg-slate-100 {
+  background-color: #1e293b !important;
+}
+
+.dark .hover\:bg-slate-50:hover {
+  background-color: #1e293b !important;
+}
+
+.dark .hover\:bg-slate-100:hover {
+  background-color: #334155 !important;
+}
+
+.dark .border-slate-200, 
+.dark .border-slate-100, 
+.dark .border-slate-300 {
+  border-color: #334155 !important; /* slate-700 */
+}
+
+.dark .text-slate-900, 
+.dark .text-slate-800 {
+  color: #f8fafc !important; /* slate-50 */
+}
+
+.dark .text-slate-700, 
+.dark .text-slate-600 {
+  color: #cbd5e1 !important; /* slate-300 */
+}
+
+.dark .text-slate-500,
+.dark .text-slate-400 {
+  color: #94a3b8 !important; /* slate-400 */
+}
+
+.dark input, 
+.dark select, 
+.dark textarea {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+.dark input::placeholder, 
+.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+.dark .bg-emerald-50 {
+  background-color: rgba(5, 150, 105, 0.16) !important;
+}
+
+.dark .border-emerald-200, 
+.dark .border-emerald-300 {
+  border-color: rgba(5, 150, 105, 0.35) !important;
+}
+
+.dark .text-emerald-950, 
+.dark .text-emerald-800 {
+  color: #6ee7b7 !important;
+}
+
+.dark .bg-amber-50 {
+  background-color: rgba(217, 119, 6, 0.16) !important;
+}
+
+.dark .border-amber-200, 
+.dark .border-amber-300 {
+  border-color: rgba(217, 119, 6, 0.35) !important;
+}
+
+.dark .text-amber-950, 
+.dark .text-amber-800 {
+  color: #fcd34d !important;
+}
+
+.dark .bg-rose-50 {
+  background-color: rgba(225, 29, 72, 0.16) !important;
+}
+
+.dark .border-rose-200, 
+.dark .border-rose-300 {
+  border-color: rgba(225, 29, 72, 0.35) !important;
+}
+
+.dark .text-rose-950, 
+.dark .text-rose-800 {
+  color: #fda4af !important;
+}
+
+/* Certificate print styling with high-fidelity institutional color preservation */
+@media print {
+  @page {
+    size: landscape;
+    margin: 8mm;
+  }
+  html, body {
+    background: white !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .fixed.inset-0 {
+    position: static !important;
+    background: white !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+  .certificate-print-container {
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
